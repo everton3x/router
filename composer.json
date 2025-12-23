@@ -1,0 +1,20 @@
+{
+    "name": "everton3x/router",
+    "description": "Roteador simples.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Router\\": "src/",
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Everton da Rosa",
+            "email": "everton3x@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
