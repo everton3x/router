@@ -12,6 +12,9 @@ final class Route
     private static array $routes = [];
     private static array $paramStore = [];
 
+    public static ?string $currentName = null;
+    public static string $currentUrl = '';
+
     /**
      * Registra uma rota para método GET.
      *
@@ -84,6 +87,8 @@ final class Route
 
     private static function dispatch(RouteDescriptor $descriptor): void
     {
+        self::$currentName = $descriptor->name;
+        self::$currentUrl = $descriptor->getUrl(self::$paramStore);
         if(strtolower($descriptor->requestMethod) !== strtolower($_SERVER['REQUEST_METHOD'])) throw new DomainException("Request method {$_SERVER['REQUEST_METHOD']} invalid for route. Expected {$descriptor->requestMethod}.");
         is_null($descriptor->method)? $method = 'index' : $method = $descriptor->method;
         $dispatcher = new $descriptor->controller();

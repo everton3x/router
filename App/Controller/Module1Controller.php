@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Router\Route;
+
 class Module1Controller
 {
     public function index(): void
@@ -30,5 +32,7 @@ class Module1Controller
         echo __METHOD__;
         echo PHP_EOL;
         var_dump($param1);
+        echo '<br>';
+        echo Route::$currentName;
     }
 }
